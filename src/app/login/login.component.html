@@ -1,0 +1,30 @@
+<mat-card class="card-login">
+      <mat-card-header>
+    <mat-card-title class="card-login title"><b> GESTÃO FINANCEIRA </b></mat-card-title>
+    <br><br><br>
+  </mat-card-header>
+  <mat-card-content>
+    <form method='POST'>
+      <table class="login-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="login-full-width">
+              <input matInput  [(ngModel)]="usuario.login" placeholder="Login"  id="login" name="login" autofocus required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="login-full-width">
+              <input matInput [(ngModel)]="usuario.senha" placeholder="Senha"  [type]="hide ? 'password' : 'text'" id="senha" name="senha"  required>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="example-button-row">
+    <button mat-raised-button (click)="fazerLogin()" color="primary" type="submit">Login</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,71 @@
+<br><br>
+<mat-card-header>
+  <mat-card-title class="card-login title"><b> Lista de Clientes </b></mat-card-title>
+  <br><br>
+</mat-card-header>
+
+<mat-form-field class="filtro">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Pesquisar Cliente" autofocus>
+</mat-form-field>
+
+<button mat-icon-button color="primary">
+  <mat-icon aria-label="Example icon-button with a heart icon" (click)="openAdd()">person_add</mat-icon>
+</button>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef><mat-icon matSuffix>account_circle</mat-icon></th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_nome}} </td>
+    </ng-container>
+
+    <!-- Cpf Column -->
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef> <mat-icon matSuffix>credit_card</mat-icon>  </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_cpf}} </td>
+    </ng-container>
+
+    <!-- Data Column -->
+    <ng-container matColumnDef="dataNasc">
+      <th mat-header-cell *matHeaderCellDef> <mat-icon matSuffix>date_range</mat-icon>   </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_dataNasc}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> <mat-icon matSuffix>mail</mat-icon>   </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_email}} </td>
+    </ng-container>
+
+    <!-- Telefone Column -->
+    <ng-container matColumnDef="tel">
+      <th mat-header-cell *matHeaderCellDef><mat-icon matSuffix>phone</mat-icon>  </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_tel}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef><mat-icon matSuffix>done_all</mat-icon>  </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.cli_status}} </td>
+    </ng-container>
+
+    <!-- Acao Column -->
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef><mat-icon matSuffix>build</mat-icon>  </th>
+      <td mat-cell *matCellDef="let cliente">
+        <button mat-icon-button color="accent">
+          <mat-icon (click)="openEdit()" >edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary">
+            <mat-icon (click)="openDelete(cliente)" >delete</mat-icon>
+          </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

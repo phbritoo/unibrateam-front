@@ -1,0 +1,61 @@
+<button mat-button mat-dialog-close class="btn-close">{{labelClose}}</button>
+<!-- <h2 mat-dialog-title class="title-modal">Cadastro de Cliente</h2> -->
+<h2 mat-dialog-title class="title-modal">{{modalTitle}}</h2>
+
+  <mat-dialog-content>
+    <form>
+            <mat-form-field class="umaLinha">
+              <input matInput placeholder="Nome:"  name="cli_nome" [(ngModel)]="cli_nome" size="500" autofocus required >
+              <button mat-button *ngIf="cli_nome" matSuffix mat-icon-button aria-label="Limpar" (click)="cli_nome=''">
+                <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+              <mat-form-field class="duasLinhas">
+                <input matInput placeholder="CPF:"  name="cli_cpf" [(ngModel)]="cli_cpf" mask="000.000.000-00" required>
+                <button mat-button *ngIf="cli_cpf" matSuffix mat-icon-button aria-label="Limpar"  (click)="cli_cpf=''">
+                  <mat-icon>close</mat-icon>
+                  </button>
+              </mat-form-field>
+
+            <mat-form-field class="duasLinhas">
+              <input matInput placeholder="Telefone"  type="tel" name="cli_tel" mask="(00) 00000-0000" [(ngModel)]="cli_tel" required>
+              <button mat-button *ngIf="cli_tel" matSuffix mat-icon-button aria-label="Limpar" (click)="cli_tel=''">
+                <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field class="umaLinha">
+              <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="cli_email" name="cli_email" required>
+              <button mat-button *ngIf="cli_email" matSuffix mat-icon-button aria-label="Limpar" (click)="cli_email=''">
+                <mat-icon>close</mat-icon>
+                </button>
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Por favor insira um e-mail correto
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email  <strong>incorreto</strong>
+              </mat-error>
+            </mat-form-field>
+
+
+              <mat-form-field class="duasLinhas">
+                <input matInput placeholder="Data Nascimento"  name="cli_dataNasc" [(ngModel)]="cli_dataNasc" mask="00/00/0000" required>
+                <button mat-button *ngIf="cli_dataNasc" matSuffix mat-icon-button aria-label="Limpar" (click)="cli_dataNasc=''">
+                  <mat-icon>close</mat-icon>
+                  </button>
+              </mat-form-field>
+
+            <mat-form-field >
+              <input matInput placeholder="Status"  type="text" name="cli_status"[(ngModel)]="cli_status" required>
+              <button mat-button *ngIf="cli_status" matSuffix mat-icon-button aria-label="Limpar" (click)="cli_status=''">
+                <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <br><br>
+            <mat-card-actions class="example-button-row">
+              <button mat-raised-button color="primary">{{labelEditar}}</button>
+          </mat-card-actions>
+          <input type="hidden" name="user_flag" id="user_flag" value="1">
+    </form>
+  </mat-dialog-content>

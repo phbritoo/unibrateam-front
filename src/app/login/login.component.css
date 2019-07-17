@@ -1,0 +1,48 @@
+.card-login {
+  width: 350px;
+  margin-top: 10%;
+}
+mat-card {
+margin: auto;
+text-align: center;
+}
+
+.login-full-width {
+  width: 100%;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media(max-width: 959px){
+  mat-toolbar{
+      border-radius: 0px;
+  }
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+

@@ -1,0 +1,16 @@
+<!-- Menu que está na pasta "menu" e dentro tem a pasta "barra-lateral" -->
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <app-barra-lateral (sidenavClose)="sidenav.close()"></app-barra-lateral>
+    </mat-sidenav>
+
+    <mat-sidenav-content >
+        <app-menu *ngIf="mostrarMenu" (sidenavToggle)="sidenav.toggle()"></app-menu>
+        <main>
+          <div class="menuPrincipal">
+            <router-outlet></router-outlet>
+          </div>
+        </main>
+      </mat-sidenav-content>
+ </mat-sidenav-container>

@@ -1,0 +1,53 @@
+<button mat-button mat-dialog-close class="btn-close">{{labelClose}}</button>
+<h2 mat-dialog-title class="title-modal">{{modalTitle}}</h2>
+
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="umaLinha">
+      <input matInput placeholder="Nome:" name="func_nome" [(ngModel)]="func_nome" size="500" autofocus required>
+      <button mat-button *ngIf="func_nome" matSuffix mat-icon-button aria-label="Limpar" (click)="func_nome=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="duasLinhas">
+      <input matInput placeholder="CPF:" name="func_cpf" [(ngModel)]="func_cpf" mask="000.000.000-00" required>
+      <button mat-button *ngIf="func_cpf" matSuffix mat-icon-button aria-label="Limpar" (click)="func_cpf=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="duasLinhas">
+      <input matInput placeholder="Telefone" type="tel" name="func_tel" mask="(00) 00000-0000" [(ngModel)]="func_tel"
+        required>
+      <button mat-button *ngIf="func_tel" matSuffix mat-icon-button aria-label="Limpar" (click)="func_tel=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="duasLinhas">
+      <input matInput placeholder="Salario Bruto" name="func_bruto" [(ngModel)]="func_bruto" prefix="R$ " mask="0000" required>
+      <button mat-button *ngIf="func_bruto" matSuffix mat-icon-button aria-label="Limpar" (click)="func_bruto=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="duasLinhas">
+      <input matInput placeholder="Salario Liquido" name="func_liquido" [(ngModel)]="func_liquido" prefix="R$ " mask="00000" required>
+      <button mat-button *ngIf="func_liquido" matSuffix mat-icon-button aria-label="Limpar" (click)="func_liquido=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="umaLinha">
+      <input matInput placeholder="Desconto" name="func_desconto" [(ngModel)]="func_desconto" prefix="R$ " mask="0000" required>
+      <button mat-button *ngIf="func_desconto" matSuffix mat-icon-button aria-label="Limpar" (click)="func_desconto=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br><br>
+    <mat-card-actions class="example-button-row">
+      <button mat-raised-button color="primary">{{labelCadastrar}}</button>
+
+    </mat-card-actions>
+  </form>
+</mat-dialog-content>
